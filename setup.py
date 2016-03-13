@@ -9,5 +9,5 @@ setup(
     author='Adarsh A, Tushar K, Tejas Gururaj',
     author_email='adarshdec23@gmail.com',
     description='Perform risk based analysis and provide personalised predictions.',
-    requires=['pymysql', 'numpy', 'sklearn']
+    requires=['pymysql', 'numpy', 'sklearn', 'matplotlib']
 )

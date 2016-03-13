@@ -2,12 +2,18 @@ from core.database import stockdata
 from sklearn.svm import SVR
 from sklearn import grid_search, preprocessing
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Get the data
 link = stockdata.StockData()
 link.sfrom('2013-01-01')
 link.sto('2016-01-20')
-result = link.get_sdata('ITC')
+allResults = link.get_sdata('ITC')
+
+# Split into train and testing data
+testSplit = 150
+result = allResults[:testSplit]
+test = allResults[-testSplit:]
 
 # Extract required features and output values
 features = result[:-1]  # Features will be 0 to n-1
@@ -33,5 +39,9 @@ clf.fit(X, y)
 # Predict
 svr = SVR(C=clf.best_params_["C"], gamma=clf.best_params_["gamma"], kernel=clf.best_params_["kernel"])
 svr.fit(X, y)
-ans = svr.predict(minMaxFeatures.transform(result[-1:]))
-print(minMaxPred.inverse_transform(ans))
+ans = svr.predict(minMaxFeatures.transform(test))
+# print(minMaxPred.inverse_transform(ans))
+test = [row[0] for row in test]
+# print(clf.best_params_["gamma"], clf.best_params_["C"])
+plt.plot(range(testSplit), test, 'blue', range(testSplit), minMaxPred.inverse_transform(ans), 'red')
+plt.show()
