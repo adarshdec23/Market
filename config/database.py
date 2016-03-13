@@ -1,4 +1,3 @@
-db= {}
 username = 'root'
 password = ''
 host = 'localhost'
