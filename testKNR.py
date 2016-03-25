@@ -1,5 +1,5 @@
 from core.database import stockdata
-from sklearn.kernel_ridge import KernelRidge
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn import grid_search, preprocessing
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ link.sto('2016-01-20')
 allResults = link.get_sdata('ITC')
 
 # Split into train and testing data
-testSplit = 100
+testSplit = 150
 training = allResults[:-testSplit]
 test = allResults[-testSplit:]
 
@@ -31,13 +31,13 @@ X = minMax.transform(X)
 Y = minMax.transform(Y)
 
 # Find the best parameters
-svr = KernelRidge()
+'''svr = KernelRidge()
 parameters = {'kernel': ['rbf'], 'gamma': np.logspace(-3, -1, 3)}
 clf = grid_search.GridSearchCV(svr, parameters)
-clf.fit(X, Y)
+clf.fit(X, Y)'''
 
 # Fit to data
-svr = KernelRidge(kernel=clf.best_params_["kernel"])
+svr = KNeighborsRegressor()
 svr.fit(X, Y)
 
 prediction = []

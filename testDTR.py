@@ -1,17 +1,18 @@
 from core.database import stockdata
-from sklearn.kernel_ridge import KernelRidge
+from sklearn.tree import DecisionTreeRegressor
 from sklearn import grid_search, preprocessing
+from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Get the data
 link = stockdata.StockData()
-link.sfrom('2013-01-01')
+link.sfrom('2002-01-01')
 link.sto('2016-01-20')
 allResults = link.get_sdata('ITC')
 
 # Split into train and testing data
-testSplit = 100
+testSplit = 250
 training = allResults[:-testSplit]
 test = allResults[-testSplit:]
 
@@ -31,13 +32,13 @@ X = minMax.transform(X)
 Y = minMax.transform(Y)
 
 # Find the best parameters
-svr = KernelRidge()
-parameters = {'kernel': ['rbf'], 'gamma': np.logspace(-3, -1, 3)}
+'''svr = DecisionTreeRegressor()
+parameters = {'gamma': np.logspace(-3, -1, 3)}
 clf = grid_search.GridSearchCV(svr, parameters)
-clf.fit(X, Y)
+clf.fit(X, Y)'''
 
 # Fit to data
-svr = KernelRidge(kernel=clf.best_params_["kernel"])
+svr = DecisionTreeRegressor(splitter='best', random_state=1)
 svr.fit(X, Y)
 
 prediction = []
@@ -51,7 +52,7 @@ for i in range(testSplit):
 
 prediction = np.array(prediction)
 # Predict
-print(test[0])
+
 test = [row[0] for row in test]
 
 ansO = [row[0] for row in minMax.inverse_transform(prediction)]
@@ -59,4 +60,5 @@ ansO = [row[0] for row in minMax.inverse_transform(prediction)]
 # Plot
 plt.plot(range(testSplit), test, 'blue', range(testSplit), ansO, 'red')
 plt.show()
-#print(minMax.inverse_transform(prediction))
+
+print(mean_squared_error(test, ansO), mean_absolute_error(test, ansO), median_absolute_error(test, ansO))
