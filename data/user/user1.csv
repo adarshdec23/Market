@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+1,31-Jan-14,GODREJCP,FMCG,sold,1050,913
+1,03-Jun-15,SBIN,Financial services,bought,268,508
+1,27-Feb-16,GLAXO,Pharma,sold,536,243
+1,13-Dec-13,BOSCHLTD,Auto,sold,871,205
+1,09-Dec-12,ASHOKLEY,Auto,sold,985,179
+1,25-Jan-14,SOBHA,Realty,bought,982,477
+1,31-May-13,HEROMOTOCO,Auto,bought,1528,489
+1,12-Jun-14,APOLLOTYRE,Auto,bought,324,676
+1,13-Jan-15,DABUR,FMCG,bought,773,133
+1,23-Oct-15,ICICIBANK,Financial services,sold,367,265
+1,18-Sep-14,OBEROIRLTY,Realty,bought,1413,400
+1,22-Apr-13,ASHOKLEY,Auto,sold,208,680
+1,05-Apr-12,HDFCBANK,Financial services,sold,1113,685
+1,13-Oct-14,BOSCHLTD,Auto,bought,1788,709
+1,27-Feb-15,SUNPHARMA,Pharma,sold,1534,608
+1,23-Mar-15,ITC,FMCG,sold,1405,133
+1,12-Mar-16,GODREJCP,FMCG,bought,765,124
+1,24-Sep-15,SBIN,Financial services,sold,295,880
+1,18-Nov-13,WIPRO,IT,bought,602,602
+1,08-Aug-14,HEROMOTOCO,Auto,sold,290,285

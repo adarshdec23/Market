@@ -25,18 +25,29 @@ class StockData:
     def ssymbol(self, symbol):
         self.symbol = symbol
 
-    def get_sdata(self, symbol=None):
-        if symbol is None:
-            symbol = self.symbol
+    def get_sdata(self, symbol):
         with self.con.cursor() as cursor:
             sql = '''
                     SELECT s.sopen, s.high, s.low, s.sclose, s.quantity, TRUNCATE(s.turnover*100000/s.quantity, 2) AS average
                     FROM stockData s, companies c
                     WHERE c.symbol = %s
+                    AND c.id = s.companyId
                     AND DATE(sdate) BETWEEN %s AND %s
-                    ORDER BY sdate
+                    ORDER BY sdate ASC
                     '''
             cursor.execute(sql, (symbol, self.fromDate, self.toDate))
             results = cursor.fetchall()
             return results
 
+    def getallofcompany(self, symbol =None):
+        with self.con.cursor() as cursor:
+            sql = '''
+                    SELECT s.sopen, s.high, s.low, s.sclose, s.quantity, TRUNCATE(s.turnover*100000/s.quantity, 2) AS average
+                    FROM stockData s, companies c
+                    WHERE c.symbol = %s
+                    AND c.id = s.companyId
+                    ORDER BY sdate ASC
+                    '''
+            cursor.execute(sql, (symbol, self.fromDate, self.toDate))
+            results = cursor.fetchall()
+            return results
