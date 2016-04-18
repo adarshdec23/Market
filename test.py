@@ -1,6 +1,7 @@
 from core.database import stockdata
 from sklearn.svm import SVR
 from sklearn import grid_search, preprocessing
+from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -42,6 +43,8 @@ svr.fit(X, y)
 ans = svr.predict(minMaxFeatures.transform(test))
 # print(minMaxPred.inverse_transform(ans))
 test = [row[0] for row in test]
-# print(clf.best_params_["gamma"], clf.best_params_["C"])
-plt.plot(range(testSplit), test, 'blue', range(testSplit), minMaxPred.inverse_transform(ans), 'red')
+print(clf.best_params_["gamma"], clf.best_params_["C"], clf.best_params_["kernel"])
+ansO = minMaxPred.inverse_transform(ans)
+print(mean_squared_error(test, ansO), mean_absolute_error(test, ansO), median_absolute_error(test, ansO))
+plt.plot(range(testSplit), test, 'blue', range(testSplit), ansO, 'red')
 plt.show()
