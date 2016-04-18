@@ -51,3 +51,14 @@ class StockData:
             cursor.execute(sql, (symbol, self.fromDate, self.toDate))
             results = cursor.fetchall()
             return results
+
+    def get_all_companies(self):
+        with self.con.cursor() as cursor:
+            sql = '''
+                    SELECT *
+                    FROM  companies c
+                    ORDER BY id ASC
+                    '''
+            cursor.execute(sql)
+            results = cursor.fetchall()
+            return results
