@@ -1,6 +1,7 @@
 from config import sharpe as sharpe
 import csv
 import numpy as np
+import os
 
 
 class SharpePortfolio:
@@ -27,7 +28,7 @@ class SharpePortfolio:
         for row in self.csv:
             if row['trade_type'] == 'sold':
                 buy_price = self.get_buy_price(row['symbol'], row['volume'])
-                if buy_price != False:
+                if buy_price:
                     stock_return = (float(row['stock_value']) - float(buy_price)) * 100/float(buy_price)
                     self.returns.append(stock_return)
 
@@ -38,3 +39,17 @@ class SharpePortfolio:
         mean = np_returns.mean()
         sharpe_ratio = (mean - sharpe.risk_free_rate)/std
         return sharpe_ratio
+
+    def get_all_portfolio_ratios(self):
+        all_ratios = []
+        for user in os.listdir('./../../data/user'):
+            if user == '__init__.py':
+                continue
+            self.set_user(user)
+            all_ratios.append([user[:-4], self.get_ratio()])
+        return all_ratios
+
+
+s = SharpePortfolio()
+ans = s.get_all_portfolio_ratios()
+print(ans)
