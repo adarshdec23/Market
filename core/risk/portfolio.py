@@ -15,7 +15,7 @@ class SharpePortfolio:
         self.filename = filename
         self.file = open('./../../data/user/'+self.filename)
         self.csv = csv.DictReader(self.file)
-        self.returns = []  #Reset for next user.
+        self.returns = []  # Reset for next user.
 
     def get_buy_price(self, symbol, volume):
         copy_csv = csv.DictReader(open('./../../data/user/'+self.filename))
@@ -46,10 +46,5 @@ class SharpePortfolio:
             if user == '__init__.py':
                 continue
             self.set_user(user)
-            all_ratios.append([user[:-4], self.get_ratio()])
+            all_ratios.append([user[:-4], self.get_ratio()])  # Remove '.csv' part
         return all_ratios
-
-
-s = SharpePortfolio()
-ans = s.get_all_portfolio_ratios()
-print(ans)
