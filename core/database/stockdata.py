@@ -39,7 +39,7 @@ class StockData:
             results = cursor.fetchall()
             return results
 
-    def getallofcompany(self, symbol =None):
+    def getallofcompany(self, symbol=None):
         with self.con.cursor() as cursor:
             sql = '''
                     SELECT s.sopen, s.high, s.low, s.sclose, s.quantity, TRUNCATE(s.turnover*100000/s.quantity, 2) AS average
@@ -60,5 +60,19 @@ class StockData:
                     ORDER BY id ASC
                     '''
             cursor.execute(sql)
+            results = cursor.fetchall()
+            return results
+
+    def get_last_n(self, symbol, n):
+        with self.con.cursor() as cursor:
+            sql = '''
+                    SELECT *
+                    FROM stockData s, companies c
+                    WHERE c.symbol = %s
+                    AND c.id = s.companyId
+                    ORDER BY sdate DESC
+                    LIMIT %s
+                    '''
+            cursor.execute(sql, (symbol, n))
             results = cursor.fetchall()
             return results

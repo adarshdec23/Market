@@ -13,7 +13,7 @@ class SharpeCompany:
         link.sfrom('2007-01-01')
         link.sto('2016-01-20')
         self.results = link.get_sdata(symbol)
-        self.returns = []  # Reset for a new comapany
+        self.returns = []  # Reset for a new company
 
     def calculate_returns(self):
         latest = self.results[-1][3]
@@ -39,5 +39,4 @@ class SharpeCompany:
             self.set_company(row[2])
             risk_builder.append(self.get_ratio())
             company_risks.append(risk_builder)
-            print(risk_builder)
         return company_risks
