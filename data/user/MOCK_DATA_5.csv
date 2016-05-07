@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+5,16-Aug-11,KOTAKBANK,Financial services,bought,460.56,80
+5,11-Nov-11,ITC,FMCG,bought,212.45,81
+5,14-Nov-11,BOSCHLTD,Auto,bought,7100.45,69
+5,12-Dec-11,PRESTIGE,Realty,bought,76.35,73
+5,19-Dec-11,RELCAPITAL,Financial services,bought,239.25,78
+5,16-Jan-12,GLENMARK,Pharma,bought,311.46,71
+5,7-Mar-12,ITC,FMCG,sold,209.1,69
+5,13-Aug-12,DRREDDY,Pharma,bought,1640.6,97
+5,25-Sep-12,ASHOKLEY,Auto,bought,24.3,65
+5,8-Feb-13,ASHOKLEY,Auto,bought,25,78
+5,11-Jul-13,MINDTREE,IT,bought,881.89,40
+5,22-Nov-13,GODREJCP,FMCG,bought,860.5,29
+5,24-Jul-14,SOBHA,Realty,bought,451.56,54
+5,14-Oct-14,ASHOKLEY,Auto,sold,44.55,35
+5,21-Oct-14,TATAMOTORS,Auto,bought,503.29,30
+5,14-Nov-14,BOSCHLTD,Auto,sold,16490,50
+5,16-Jan-15,ASHOKLEY,Auto,sold,61.25,55
+5,4-May-15,WIPRO,IT,bought,544.5,98
+5,24-Jul-15,SOBHA,Realty,bought,361.45,35
+5,12-Oct-15,WIPRO,IT,sold,599,69

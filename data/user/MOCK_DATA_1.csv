@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+1,16-May-11,DRREDDY,Pharma,bought,1650,89
+1,12-Aug-11,ASHOKLEY,Auto,bought,26.14,66
+1,28-Dec-11,TECHM,IT,bought,565,86
+1,22-Mar-12,MPHASIS,IT,bought,406.12,86
+1,09-Apr-12,GLAXO,Pharma,bought,2215,64
+1,02-May-12,DABUR,FMCG,bought,109.45,83
+1,03-Sep-12,CIPLA,Pharma,bought,379,64
+1,18-Sep-12,PRESTIGE,Realty,bought,128.15,77
+1,28-Sep-12,DRREDDY,Pharma,sold,1621,52
+1,08-Jul-13,HINDUNILVR,FMCG,bought,610.1,71
+1,01-Sep-13,SUNPHARMA,Pharma,bought,531.45,28
+1,16-Sep-13,BOSCHLTD,Auto,bought,8335,31
+1,19-Nov-13,CIPLA,Pharma,sold,400.1,53
+1,23-Dec-13,PHOENIXLTD,Realty,bought,221.5,82
+1,11-Mar-14,GLENMARK,Pharma,bought,542.23,34
+1,18-Jul-14,ICICIBANK,Financial Services,bought,1485.3,89
+1,24-May-15,HDFCBANK,Financial Services,bought,1025.35,36
+1,20-Jun-15,TECHM,IT,sold,475,86
+1,17-Aug-15,GLAXO,Pharma,bought,3620.97,27
+1,09-Nov-15,TATAELXSI,IT,bought,1834,89

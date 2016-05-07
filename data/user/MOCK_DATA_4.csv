@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+4,10-Sep-11,DRREDDY,Pharma,bought,1470.25,26
+4,7-Oct-11,M&M,Auto,bought,803,200
+4,2-Jul-12,GLENMARK,Pharma,bought,365.2,54
+4,30-Jul-12,GLAXO,Pharma,bought,2134,73
+4,3-Aug-12,MARUTI,Auto,bought,1115,36
+4,16-Aug-12,SOBHA,Realty,bought,336.85,59
+4,11-Jan-13,TATAELXSI,IT,bought,232.25,49
+4,29-Apr-13,SOBHA,Realty,sold,196.1,52
+4,1-Aug-13,HDFCBANK,Financial services,bought,636.36,100
+4,13-Nov-13,MARUTI,Auto,sold,1585.25,32
+4,12-Dec-13,HCLTECH,IT,bought,1165,27
+4,30-Dec-13,MPHASIS,IT,bought,440.2,88
+4,17-Jan-14,HDFCBANK,Financial services,sold,666.78,79
+4,22-Jan-14,TATAMOTORS,Auto,bought,381.25,74
+4,21-Jul-14,M&M,Auto,sold,1195.56,67
+4,21-Aug-14,GODREJCP,FMCG,bought,955.4,39
+4,13-Nov-14,CIPLA,Pharma,bought,625.45,85
+4,16-Mar-15,TATAELXSI,IT,sold,1215,25
+4,22-Dec-15,M&M,Auto,sold,1266.76,60
+4,23-Feb-16,TATAELXSI,IT,bought,1901,71
