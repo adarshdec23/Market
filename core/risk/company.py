@@ -28,7 +28,11 @@ class SharpeCompany:
         std = np_returns.std()
         mean = np_returns.mean()
         sharpe_ratio = (mean - sharpe.risk_free_rate)/std
-        return sharpe_ratio
+        return dict(
+            sharpe=sharpe_ratio,
+            mean=mean,
+            std=std,
+        )
 
     def get_all_company_ratios(self):
         link = stockdata.StockData()

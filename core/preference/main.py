@@ -1,6 +1,6 @@
 from collections import *
 import numpy
-fp = open("MOCK_DATA.csv","r")
+fp = open('./../../data/user/user1.csv',"r")
 list1 = []
 list2 = []
 list3 = []
@@ -78,3 +78,11 @@ for i in range(len(categories)):
 print (list2)
 print (categories)
 print (list4,sold_average,s,s_average,bought_average,b,b_average)
+deviation = []
+print (len(categories))
+for i in range(len(categories)):
+    deviation.append(s_average[i]-b_average[i])
+print(deviation)
+max_category = max(deviation)
+print (deviation.index(max_category))
+print (categories[deviation.index(max_category)])

@@ -59,3 +59,8 @@ class RSI:
             else:
                 self.rsis[i].append('The stock will remain in the current range.')
         return self.rsis
+
+e = RSI()
+x = e.get_med_analysis()
+for i in x:
+    print(i)

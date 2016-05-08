@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+2,04-05-2011,DABUR,FMCG,bought,99.85,100
+2,08-05-2011,DRREDDY,Pharma,bought,1623,100
+2,29-06-2011,KOTAKBANK,Financial services,bought,463.05,66
+2,13-05-2012,PHOENIXLTD,Realty,bought,194,49
+2,13-12-2012,PHOENIXLTD,Realty,sold,236,20
+2,26-05-2013,TCS,IT,bought,1485,89
+2,04-10-2013,DLF,Realty,sold,137.3,68
+2,22-03-2014,DLF,Realty,sold,170.25,63
+2,24-03-2014,RELCAPITAL,Financial services,bought,330,73
+2,08-05-2014,OBEROIRLTY,Realty,bought,198.66,72
+2,30-09-2014,TECHM,IT,bought,2467.7,81
+2,12-10-2014,PHOENIXLTD,Realty,bought,373,59
+2,12-01-2015,ICICIBANK,Financial services,sold,360,62
+2,27-02-2015,KOTAKBANK,Financial services,sold,1340,45
+2,11-06-2015,HINDUNILVR,FMCG,bought,820,70
+2,23-06-2015,SUNPHARMA,Pharma,bought,865.2,59
+2,25-07-2015,ASHOKLEY,Auto,bought,69.25,60
+2,13-08-2015,PRESTIGE,Realty,bought,209.2,25
+2,07-09-2015,RELCAPITAL,Financial services,sold,324,35
+2,19-10-2015,SUNPHARMA,Pharma,sold,890.55,48

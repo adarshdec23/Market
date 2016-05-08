@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+3,11-05-2011,DLF,Realty,bought,225.2,48
+3,01-07-2011,DLF,Realty,sold,213.7,26
+3,26-09-2011,ITC,FMCG,bought,189.9,47
+3,20-01-2012,GLAXO,Pharma,bought,1973.5,25
+3,09-06-2012,KOTAKBANK,Financial services,bought,1357.35,91
+3,16-04-2013,EICHERMOT,Auto,bought,2733,88
+3,26-04-2013,EICHERMOT,Auto,sold,2893,70
+3,20-09-2013,KOTAKBANK,Financial services,sold,753.3,43
+3,26-12-2013,WIPRO,IT,bought,551.2,93
+3,27-12-2013,HDFCBANK,Financial services,bought,673.1,26
+3,20-06-2014,KOTAKBANK,Financial services,sold,935,99
+3,14-07-2014,TECHM,IT,bought,2023.2,35
+3,23-01-2015,APOLLOTYRE,Auto,bought,232.15,70
+3,09-02-2015,AXISBANK,Financial services,bought,568.6,50
+3,18-02-2015,EXIDEIND,Auto,bought,182.1,98
+3,06-04-2015,TECHM,IT,sold,551.85,32
+3,23-09-2015,BOSCHLTD,Auto,bought,20355,75
+3,17-12-2015,MARUTI,Auto,bought,4650,31
+3,29-01-2016,EICHERMOT,Auto,sold,16300,22
+3,08-04-2016,KOTAKBANK,Financial services,sold,669.5,40

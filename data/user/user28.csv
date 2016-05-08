@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+28,08-02-2011,BOSCHLTD,Auto,bought,6084,90
+28,08-08-2011,TECHM,IT,bought,700,100
+28,19-01-2012,SOBHA,Realty,bought,235,79
+28,23-01-2012,WIPRO,IT,bought,410.75,80
+28,25-05-2012,WIPRO,IT,sold,392,50
+28,29-05-2012,TECHM,IT,sold,652.05,60
+28,05-02-2013,PHOENIXLTD,Realty,bought,273.9,27
+28,08-05-2013,SBIN,Financial services,bought,2260,80
+28,04-06-2013,WIPRO,IT,sold,326.35,20
+28,05-07-2013,EXIDEIND,Auto,bought,123,65
+28,30-07-2013,GLAXO,Pharma,bought,2435.35,60
+28,02-08-2013,DLF,Realty,bought,137.5,100
+28,05-09-2013,DLF,Realty,sold,129.55,68
+28,14-03-2014,SUNPHARMA,Pharma,bought,570,29
+28,22-04-2014,MPHASIS,IT,bought,410,89
+28,09-12-2014,SBIN,Financial services,sold,312.7,70
+28,10-03-2015,DLF,Realty,sold,151.2,20
+28,11-08-2015,M&M,Auto,bought,1362.9,59
+28,20-10-2015,CIPLA,Pharma,bought,689.65,91
+28,17-11-2015,MPHASIS,IT,sold,513.15,79

@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+39,30-06-2011,EXIDEIND,Auto,bought,165.4,92
+39,05-07-2011,HDFCBANK,Financial services,bought,2522,66
+39,04-11-2011,PRESTIGE,Realty,bought,97.8,55
+39,29-11-2011,GLAXO,Pharma,bought,1975,72
+39,27-12-2011,M&M,Auto,bought,701,37
+39,10-04-2012,CIPLA,Pharma,bought,313,60
+39,26-06-2012,APOLLOTYRE,Auto,bought,78,55
+39,06-08-2012,GLAXO,Pharma,sold,2129.85,25
+39,02-04-2013,HDFCBANK,Financial services,bought,625,80
+39,11-06-2013,GODREJCP,FMCG,bought,852.05,92
+39,01-07-2013,KOTAKBANK,Financial services,bought,723,30
+39,09-07-2013,HDFCBANK,Financial services,sold,662.2,68
+39,31-12-2013,M&M,Auto,sold,955,20
+39,18-02-2014,HINDUNILVR,FMCG,bought,560,53
+39,28-10-2014,APOLLOTYRE,Auto,sold,214.85,35
+39,26-05-2015,PHOENIXLTD,Realty,bought,355.95,78
+39,22-06-2015,PHOENIXLTD,Realty,sold,380.85,78
+39,24-06-2015,PRESTIGE,Realty,sold,255.55,40
+39,11-08-2015,TECHM,IT,bought,532.3,68
+39,10-08-2015,KOTAKBANK,Financial services,sold,715.05,20

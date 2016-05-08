@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+25,25-02-2011,MPHASIS,IT,bought,590,39
+25,15-03-2011,ITC,FMCG,bought,171.05,34
+25,24-05-2011,RELCAPITAL,Financial services,bought,495,75
+25,28-06-2011,SOBHA,Realty,bought,260,48
+25,28-06-2011,RELCAPITAL,Financial services,sold,559.4,20
+25,12-07-2011,BAJAJ-AUTO,Auto,bought,1440.5,21
+25,30-08-2011,KOTAKBANK,Financial services,bought,449,100
+25,27-09-2011,AXISBANK,Financial services,bought,1074,89
+25,01-12-2011,TECHM,IT,bought,579,50
+25,10-01-2013,GLENMARK,Pharma,bought,544,85
+25,17-05-2013,TECHM,IT,sold,950,25
+25,30-09-2013,EICHERMOT,Auto,bought,3608,57
+25,21-03-2014,AXISBANK,Financial services,sold,1335,59
+25,01-09-2014,HCLTECH,IT,bought,1659,52
+25,27-11-2014,KOTAKBANK,Financial services,sold,1166,80
+25,04-02-2015,TCS,IT,bought,2568,69
+25,24-04-2015,RELCAPITAL,Financial services,sold,424.5,40
+25,26-10-2015,HCLTECH,IT,bought,859.35,78
+25,05-01-2016,APOLLOTYRE,Auto,bought,156.95,33
+25,05-01-2016,OBEROIRLTY,Realty,bought,260,78

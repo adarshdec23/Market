@@ -1,0 +1,21 @@
+uid,date,symbol,category,trade_type,stock_value,volume
+35,26-04-2011,DRREDDY,Pharma,bought,1653.85,76
+35,11-07-2011,GLAXO,Pharma,bought,2304.5,100
+35,09-08-2011,TATAMOTORS,Auto,bought,793,75
+35,11-10-2011,EICHERMOT,Auto,bought,1725,100
+35,13-03-2012,HDFCBANK,Financial services,bought,523,91
+35,28-04-2012,EICHERMOT,Auto,sold,2264,72
+35,14-05-2012,MPHASIS,IT,bought,388.15,75
+35,26-06-2012,SBIN,Financial services,bought,2113,71
+35,31-10-2012,ITC,FMCG,bought,284.95,33
+35,08-11-2012,MPHASIS,IT,sold,387.7,55
+35,13-12-2012,TATAMOTORS,Auto,sold,282.2,61
+35,08-02-2013,KOTAKBANK,Financial services,bought,685,37
+35,22-10-2013,SBIN,Financial services,sold,1670,30
+35,31-01-2014,MARUTI,Auto,bought,1655,58
+35,05-05-2014,GODREJCP,FMCG,bought,792.1,23
+35,17-12-2014,RELCAPITAL,Financial services,bought,475.1,45
+35,12-01-2015,PRESTIGE,Realty,bought,222.15,69
+35,11-03-2015,SBIN,Financial services,bought,288.55,32
+35,06-08-2015,SBIN,Financial services,sold,285.6,40
+35,24-11-2015,MARUTI,Auto,sold,4700,40
