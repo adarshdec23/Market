@@ -76,3 +76,14 @@ class StockData:
             cursor.execute(sql, (symbol, n))
             results = cursor.fetchall()
             return results
+
+    def get_split_date(self, symbol):
+        with self.con.cursor() as cursor:
+            sql = '''
+                    SELECT splitDate
+                    FROM companies c
+                    WHERE symbol = %s
+                    '''
+            cursor.execute(sql, (symbol,))
+            results = cursor.fetchone()[0]
+            return results

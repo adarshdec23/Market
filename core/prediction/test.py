@@ -4,15 +4,18 @@ from sklearn import grid_search, preprocessing
 from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
+import sys
 
-
-class ShortTerm:
+sys.exit('This is too good to change. Don\'t run this')
+symbol = 'JUBLFOOD'
 
 # Get the data
 link = stockdata.StockData()
-link.sfrom('2013-01-01')
-link.sto('2016-01-20')
-allResults = link.get_sdata('ITC')
+splitDate = link.get_split_date(symbol)
+link.sfrom(splitDate if splitDate else '2015-01-01')
+link.sto('2016-05-09')
+allResults = link.get_sdata(symbol)
 
 # Split into train and testing data
 testSplit = 150
@@ -36,17 +39,21 @@ y = minMaxPred.fit_transform(predictions)
 
 # Find the best parameters
 svr = SVR()
-parameters = {'C': [1, 10, 100], 'gamma': np.logspace(-3, -1, 3), 'kernel': ['rbf', 'linear']}
+parameters = {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.1, 1]}
 clf = grid_search.GridSearchCV(svr, parameters)
 clf.fit(X, y)
 
 # Predict
-svr = SVR(C=clf.best_params_["C"], gamma=clf.best_params_["gamma"], kernel=clf.best_params_["kernel"])
+svr = SVR(C=clf.best_params_["C"], gamma=clf.best_params_["gamma"])
 svr.fit(X, y)
 ans = svr.predict(minMaxFeatures.transform(test))
-# print(minMaxPred.inverse_transform(ans))
+
+# Save the classifier
+with open('./../../upinkai/company_clf/'+symbol, 'wb') as file:
+    pickle.dump(svr, file)
+
 test = [row[0] for row in test]
-print(clf.best_params_["gamma"], clf.best_params_["C"], clf.best_params_["kernel"])
+print(clf.best_params_["gamma"], clf.best_params_["C"])
 ansO = minMaxPred.inverse_transform(ans)
 print(mean_squared_error(test, ansO), mean_absolute_error(test, ansO), median_absolute_error(test, ansO))
 plt.plot(range(testSplit), test, 'blue', range(testSplit), ansO, 'red')

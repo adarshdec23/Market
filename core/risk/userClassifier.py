@@ -9,8 +9,6 @@ from os import path
 
 class Matcher:
 
-    test_users = ['user32', 'user33', 'user34', 'user35']
-
     def __init__(self):
         c = company.SharpeCompany()
         if path.exists('./../../upinkai/company.pkl'):
@@ -43,18 +41,18 @@ class Matcher:
 
     def grid_search(self, X, y):
         svc = svm.SVC()
-        parameters = {'C': [1, 10, 100], 'gamma': np.logspace(-3, -1, 3)}
+        parameters = {'gamma': np.logspace(-3, -1, 3)}
         clf = grid_search.GridSearchCV(svc, parameters)
         clf.fit(X, y)
         return clf
 
-    def ml(self):
+    def ml(self, user_list):
         attributes = self.get_all_attributes()
         train_features = []
         train_class = []
         test_features = []
         for x in attributes:
-            if x[0] not in self.test_users:
+            if x[0] not in user_list:
                 train_features.append(x[1])
                 train_class.append(user.labels[x[0]])
             else:
@@ -65,8 +63,9 @@ class Matcher:
         grid = self.grid_search(train_features, train_class)
         clf = svm.SVC(C=10, gamma=grid.best_params_['gamma'])
         clf.fit(train_features, train_class)
-        print(clf.predict(test_features))
+        return clf.predict(test_features)
 
-
-m = Matcher()
-m.ml()
+    def get_user_class(self, user_name):
+        if user_name in user.labels:
+            return user.labels[user_name]
+        return self.ml([user_name])
