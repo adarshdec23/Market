@@ -5,6 +5,9 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, median_abso
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+class ShortTerm:
+
 # Get the data
 link = stockdata.StockData()
 link.sfrom('2013-01-01')

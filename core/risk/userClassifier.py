@@ -3,6 +3,9 @@ import statistics
 from sklearn import svm, grid_search
 import numpy as np
 from core.classifer_results import user
+import pickle
+from os import path
+
 
 class Matcher:
 
@@ -10,7 +13,13 @@ class Matcher:
 
     def __init__(self):
         c = company.SharpeCompany()
-        self.company_risks = c.get_all_company_ratios()
+        if path.exists('./../../upinkai/company.pkl'):
+            with open('./../../upinkai/company.pkl', 'rb') as file:
+                self.company_risks = pickle.load(file)
+        else:
+            self.company_risks = c.get_all_company_ratios()
+            with open('./../../upinkai/company.pkl', 'wb') as file:
+                pickle.dump(self.company_risks, file)
 
     def get_sharpe_of_company(self, symbol):
         for x in self.company_risks:
@@ -30,7 +39,6 @@ class Matcher:
         all_portfolio = p.get_all_portfolio_ratios()
         for count, i in enumerate(all_portfolio):
             attributes.append( [ i[0], [ i[1]['positive_returns'], i[1]['negative_returns'], self.get_avg_sharpe(i[1]['companies'])] ] )
-            print(attributes[count])
         return attributes
 
     def grid_search(self, X, y):
