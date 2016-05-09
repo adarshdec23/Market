@@ -5,18 +5,19 @@ import numpy as np
 from core.classifer_results import user
 import pickle
 from os import path
+from config import main
 
 
 class Matcher:
 
     def __init__(self):
         c = company.SharpeCompany()
-        if path.exists('./../../upinkai/company.pkl'):
-            with open('./../../upinkai/company.pkl', 'rb') as file:
+        if path.exists(main.path+'upinkai/company.pkl'):
+            with open(main.path+'upinkai/company.pkl', 'rb') as file:
                 self.company_risks = pickle.load(file)
         else:
             self.company_risks = c.get_all_company_ratios()
-            with open('./../../upinkai/company.pkl', 'wb') as file:
+            with open(main.path+'upinkai/company.pkl', 'wb') as file:
                 pickle.dump(self.company_risks, file)
 
     def get_sharpe_of_company(self, symbol):
