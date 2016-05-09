@@ -1,14 +1,14 @@
 from core.database import stockdata
 from sklearn.svm import SVR
-from sklearn import grid_search, preprocessing
+from sklearn import preprocessing, grid_search
 from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 import sys
 
-sys.exit('This is too good to change. Don\'t run this')
-symbol = 'JUBLFOOD'
+sys.exit('This is too good to change. Don\'t run this.')
+symbol = ''
 
 # Get the data
 link = stockdata.StockData()
@@ -44,16 +44,14 @@ clf = grid_search.GridSearchCV(svr, parameters)
 clf.fit(X, y)
 
 # Predict
-svr = SVR(C=clf.best_params_["C"], gamma=clf.best_params_["gamma"])
+svr = SVR(C=clf.best_params_['C'], gamma=clf.best_params_['gamma'])
 svr.fit(X, y)
 ans = svr.predict(minMaxFeatures.transform(test))
 
-# Save the classifier
 with open('./../../upinkai/company_clf/'+symbol, 'wb') as file:
-    pickle.dump(svr, file)
+    pickle.dump(dict(svr=svr, minmax=minMaxPred), file)
 
 test = [row[0] for row in test]
-print(clf.best_params_["gamma"], clf.best_params_["C"])
 ansO = minMaxPred.inverse_transform(ans)
 print(mean_squared_error(test, ansO), mean_absolute_error(test, ansO), median_absolute_error(test, ansO))
 plt.plot(range(testSplit), test, 'blue', range(testSplit), ansO, 'red')
