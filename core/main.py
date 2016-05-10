@@ -16,7 +16,7 @@ class Main:
         self.prefer = preference.UserPreference()
         file = open(main.path+'upinkai/company.pkl', 'rb')
         self.company_risks = pickle.load(file)
-        self.portfoli = portfolio.Portfolio()
+        self.portfolio = portfolio.Portfolio()
 
     def get_companies(self, risk_level, preferred_cat):
         companies = []
@@ -29,9 +29,7 @@ class Main:
 
     def get_suggestions(self, user):
         user_class = self.uc.get_user_class(user)
+        print(user_class)
         user_preference = self.prefer.get_preferences(user)
         user_companies = self.get_companies(Main.risk_association[user_class], user_preference)
-        print(user_companies)
-
-m = Main()
-m.get_suggestions('user4')
+        return user_companies

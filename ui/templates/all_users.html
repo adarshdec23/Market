@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block main %}
+    <style>
+        .label{
+            font-weight: 400;
+            font-size: 100%
+        }
+    </style>
+    <h1>User List</h1>
+    <h4>Select Any User</h4>
+    <ul class="list-group">
+        {% for user in user_list %}
+            <div class="col-xs-4" style="margin-top:10px">
+                <li class="list-group-item text-center">
+                    <a href="{{url_for('show_user_profile', username=user.user_name, risk_class=user.risk_class)}}">{{user.user_name}}</a>
+                    <label class="label
+                    {% if user.risk_class == 'aggressive' %}
+                        label-danger
+                        ">
+                    {% elif user.risk_class == 'moderate' %}
+                        label-warning
+                        ">
+                    {% elif user.risk_class == 'conservative' %}
+                        label-success
+                        ">
+                    {% endif %}
+                    {{user.risk_class}}
+                    </label>
+                </li>
+            </div>
+            <div class="col-xs-offset-1"></div>
+            {% if loop.index % 3 == 0%}
+                <div class="clearfix"></div>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

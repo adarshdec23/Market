@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 import pickle
 import sys
 
-sys.exit('This is too good to change. Don\'t run this.')
-symbol = ''
+#sys.exit('This is too good to change. Don\'t run this.')
+symbol = 'ITC'
 
 # Get the data
 link = stockdata.StockData()
@@ -48,8 +48,8 @@ svr = SVR(C=clf.best_params_['C'], gamma=clf.best_params_['gamma'])
 svr.fit(X, y)
 ans = svr.predict(minMaxFeatures.transform(test))
 
-with open('./../../upinkai/company_clf/'+symbol, 'wb') as file:
-    pickle.dump(dict(svr=svr, minmax=minMaxPred), file)
+# with open('./../../upinkai/company_clf/'+symbol, 'wb') as file:
+#     pickle.dump(dict(svr=svr, minmax=minMaxPred), file)
 
 test = [row[0] for row in test]
 ansO = minMaxPred.inverse_transform(ans)

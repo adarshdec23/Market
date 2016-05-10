@@ -4,7 +4,7 @@ from sklearn import svm, grid_search
 import numpy as np
 from core.classifer_results import user
 import pickle
-from os import path
+import os
 from config import main
 
 
@@ -12,7 +12,7 @@ class Matcher:
 
     def __init__(self):
         c = company.SharpeCompany()
-        if path.exists(main.path+'upinkai/company.pkl'):
+        if os.path.exists(main.path+'upinkai/company.pkl'):
             with open(main.path+'upinkai/company.pkl', 'rb') as file:
                 self.company_risks = pickle.load(file)
         else:
@@ -23,7 +23,7 @@ class Matcher:
     def get_sharpe_of_company(self, symbol):
         for x in self.company_risks:
             if x[2] == symbol:
-                return x[5]['sharpe']
+                return x[6]['sharpe']
 
     def get_avg_sharpe(self, companies):
         sharpes = []
@@ -67,6 +67,18 @@ class Matcher:
         return clf.predict(test_features)
 
     def get_user_class(self, user_name):
+        user_name = user_name.split('.')[0]
         if user_name in user.labels:
             return user.labels[user_name]
         return self.ml([user_name])
+
+    def get_all_user_classes(self):
+        all_users = []
+        for user in os.listdir(main.path+'data/user'):
+            user_name = user.split('.')[0]
+            all_users.append(
+                dict(user_name=user_name,
+                     risk_class = self.get_user_class(user_name)
+                )
+            )
+        return all_users

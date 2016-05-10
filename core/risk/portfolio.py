@@ -3,6 +3,7 @@ import csv
 import numpy as np
 import os
 import statistics
+from config import main
 
 
 class Portfolio:
@@ -15,13 +16,13 @@ class Portfolio:
 
     def set_user(self, filename):
         self.filename = filename
-        self.file = open('./../../data/user/'+self.filename)
+        self.file = open(main.path+'data/user/'+self.filename)
         self.csv = csv.DictReader(self.file)
         self.positive_returns = []
         self.negative_returns = []
 
     def get_buy_price(self, symbol, volume):
-        copy_csv = csv.DictReader(open('./../../data/user/'+self.filename))
+        copy_csv = csv.DictReader(open(main.path+'data/user/'+self.filename))
         for row in copy_csv:
             if row['trade_type'] == 'bought' and row['symbol'] == symbol:
                 return row['stock_value']
@@ -43,7 +44,7 @@ class Portfolio:
 
     def get_companies(self):
         companies = []
-        copy_csv = csv.DictReader(open('./../../data/user/'+self.filename))
+        copy_csv = csv.DictReader(open(main.path+'data/user/'+self.filename))
         for row in copy_csv:
             if row['symbol'] not in companies:
                 companies.append(row['symbol'])
@@ -74,7 +75,7 @@ class Portfolio:
 
     def get_all_portfolio_ratios(self):
         all_ratios = []
-        for user in os.listdir('./../../data/user'):
+        for user in os.listdir(main.path+'data/user'):
             if user == '__init__.py':
                 continue
             self.set_user(user)
