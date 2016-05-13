@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from core.risk import userClassifier, portfolio
+from core.risk import userClassifier, portfolio, company
+from core.prediction import rsi
 from core import main
 
 app = Flask(__name__)
@@ -28,11 +29,22 @@ def show_user_profile(username, risk_class):
 
 @app.route('/company')
 def all_companies():
-    return 'All companies'
+    c = company.SharpeCompany()
+    print(c.get_all_company_ratios())
+    return render_template('all_companies.html', company_list=c.get_all_company_ratios())
 
 @app.route('/company/<symbol>')
 def show_company(symbol):
-    return 'Company: '+symbol
+    c = company.SharpeCompany()
+    c.set_company(symbol)
+    r = rsi.RSI()
+    return render_template(
+        'company.html',
+        symbol=symbol,
+        ratios=c.get_ratio(),
+        next_open=c.get_latest_open(),
+        med_prediction=r.get_med_analysis_of(symbol)
+       )
 
 if __name__ == '__main__':
     app.run(debug=True)

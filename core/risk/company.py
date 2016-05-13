@@ -15,6 +15,9 @@ class SharpeCompany:
         self.results = link.get_sdata(symbol)
         self.returns = []  # Reset for a new company
 
+    def get_latest_open(self):
+        return self.results[-1][0]
+
     def calculate_returns(self):
         latest = self.results[-1][3]
         close_prices = []
@@ -23,9 +26,9 @@ class SharpeCompany:
         self.returns = [(float(latest) - old_close)*100/old_close for old_close in close_prices]
 
     def get_company_risk(self, sharpe_ratio):
-        if sharpe_ratio <= 0.1:
+        if sharpe_ratio <= 0.2:
             return 'high'
-        elif 0.1 < sharpe_ratio <= 0.4:
+        elif 0.2 < sharpe_ratio <= 0.58:
             return 'moderate'
         else:
             return 'low'
@@ -41,7 +44,7 @@ class SharpeCompany:
             sharpe=sharpe_ratio,
             mean=mean,
             std=std,
-            risk=risk,
+            risk=risk.capitalize(),
         )
 
     def get_all_company_ratios(self):

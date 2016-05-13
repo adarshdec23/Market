@@ -7,13 +7,14 @@ import matplotlib.pyplot as plt
 import pickle
 import sys
 
-sys.exit('This is too good to change. Don\'t run this.')
-symbol = 'ITC'
+#sys.exit('This is too good to change. Don\'t run this.')
+symbol = 'JUBLFOOD'
 
 # Get the data
 link = stockdata.StockData()
 splitDate = link.get_split_date(symbol)
-link.sfrom(splitDate if splitDate else '2015-01-01')
+startDate = splitDate if splitDate else '2015-01-01'
+link.sfrom(startDate)
 link.sto('2016-05-09')
 allResults = link.get_sdata(symbol)
 
@@ -38,21 +39,32 @@ X = minMaxFeatures.fit_transform(features)
 y = minMaxPred.fit_transform(predictions)
 
 # Find the best parameters
-svr = SVR()
-parameters = {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.1, 1]}
-clf = grid_search.GridSearchCV(svr, parameters)
-clf.fit(X, y)
+# svr = SVR()
+# parameters = {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.1, 1]}
+# clf = grid_search.GridSearchCV(svr, parameters)
+# clf.fit(X, y)
+
+res_dict = dict()
+with open('./../../upinkai/company_clf/'+symbol, 'rb') as file:
+    res_dict=pickle.load(file)
 
 # Predict
-svr = SVR(C=clf.best_params_['C'], gamma=clf.best_params_['gamma'])
+svr = SVR(C=res_dict['svr'].get_params()['C'], gamma=res_dict['svr'].get_params()['gamma'])
 svr.fit(X, y)
 ans = svr.predict(minMaxFeatures.transform(test))
 
-# with open('./../../upinkai/company_clf/'+symbol, 'wb') as file:
-#     pickle.dump(dict(svr=svr, minmax=minMaxPred), file)
-
 test = [row[0] for row in test]
 ansO = minMaxPred.inverse_transform(ans)
-print(mean_squared_error(test, ansO), mean_absolute_error(test, ansO), median_absolute_error(test, ansO))
+errors = dict(
+    mse=mean_squared_error(test, ansO),
+    mean_ae=mean_absolute_error(test, ansO),
+    median_ae=median_absolute_error(test, ansO)
+    )
+print(errors)
+
+# with open('./../../upinkai/company_clf/'+symbol, 'wb') as file:
+#     pickle.dump(dict(svr=svr, minMaxPred=minMaxPred, minMaxFeatures=minMaxFeatures, startDate=startDate, errors=errors), file)
+
+
 plt.plot(range(testSplit), test, 'blue', range(testSplit), ansO, 'red')
 plt.show()
