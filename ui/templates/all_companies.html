@@ -1,19 +1,13 @@
 {% extends "base.html" %}
 {% block main %}
-    <style>
-        .label{
-            font-weight: 400;
-            font-size: 100%
-        }
-    </style>
     <h1>Company List</h1>
     <h4>Select Any Company</h4>
     <ul class="list-group">
         {% for company in company_list %}
             <div class="col-xs-4" style="margin-top:10px">
                 <li class="list-group-item text-center">
-                    <a href="{{url_for('show_company', symbol=company[2])}}">{{company[1]}}</a>
-                    <label class="label
+                    <a class="col-xs-6" href="{{url_for('show_company', symbol=company[2])}}">{{company[1]}}</a>
+                    <label class="col-xs-6 label
                     {% if company[6].risk == 'High' %}
                         label-danger
                         ">

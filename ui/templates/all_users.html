@@ -12,8 +12,8 @@
         {% for user in user_list %}
             <div class="col-xs-4" style="margin-top:10px">
                 <li class="list-group-item text-center">
-                    <a href="{{url_for('show_user_profile', username=user.user_name, risk_class=user.risk_class)}}">{{user.user_name}}</a>
-                    <label class="label
+                    <a class="col-xs-6" href="{{url_for('show_user_profile', username=user.user_name, risk_class=user.risk_class)}}">{{user.user_name}}</a>
+                    <label class="col-xs-6 label
                     {% if user.risk_class == 'aggressive' %}
                         label-danger
                         ">
