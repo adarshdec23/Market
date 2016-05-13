@@ -16,8 +16,15 @@ def all_users():
 @app.route('/user/<username>/<risk_class>')
 def show_user_profile(username, risk_class):
     m = main.Main()
-    print(m.get_suggestions(username))
-    return render_template('user.html', username=username, risk_class = risk_class)
+    results = m.get_suggestions(username)
+    return render_template(
+        'user.html',
+        username=username.capitalize(),
+        risk_class=risk_class.capitalize(),
+        suggestions=results['suggestions'],
+        preference=results['preference'],
+        ratios=results['ratios']
+    )
 
 @app.route('/company')
 def all_companies():

@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pickle
 import sys
 
-#sys.exit('This is too good to change. Don\'t run this.')
+sys.exit('This is too good to change. Don\'t run this.')
 symbol = 'ITC'
 
 # Get the data

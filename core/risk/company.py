@@ -41,7 +41,7 @@ class SharpeCompany:
             sharpe=sharpe_ratio,
             mean=mean,
             std=std,
-            risk = risk,
+            risk=risk,
         )
 
     def get_all_company_ratios(self):
