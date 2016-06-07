@@ -8,7 +8,7 @@ import pickle
 import sys
 
 #sys.exit('This is too good to change. Don\'t run this.')
-symbol = 'JUBLFOOD'
+symbol = 'ITC'
 
 # Get the data
 link = stockdata.StockData()

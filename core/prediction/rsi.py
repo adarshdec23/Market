@@ -68,3 +68,6 @@ class RSI:
                     rsi=row[1],
                     analysis=row[2]
                 )
+
+m = RSI()
+print(m.get_med_analysis())

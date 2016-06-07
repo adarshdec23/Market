@@ -16,7 +16,10 @@ for a in attribs:
         agg_x.append(a[1][1])
         agg_y.append(a[1][2])
 
-pyplot.scatter(x=con_x, y=con_y, c='green', marker='>')
-pyplot.scatter(x=mod_x, y=mod_y, c='white', marker='^')
-pyplot.scatter(x=agg_x, y=agg_y, c='yellow')
+low = pyplot.scatter(x=con_x, y=con_y, c='green', marker='>')
+moderate = pyplot.scatter(x=mod_x, y=mod_y, c='white', marker='^')
+high = pyplot.scatter(x=agg_x, y=agg_y, c='yellow')
+pyplot.legend([low, moderate, high], ["Low Risk", "Moderate Risk", "High Risk"])
+pyplot.xlabel("Negative Returns")
+pyplot.ylabel("Sharpe Ratio")
 pyplot.show()

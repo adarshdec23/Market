@@ -16,7 +16,7 @@ class SharpeCompany:
         self.returns = []  # Reset for a new company
 
     def get_latest_open(self):
-        return self.results[-1][0]
+        return self.results[-1][1]
 
     def calculate_returns(self):
         latest = self.results[-1][3]
