@@ -1,22 +1,30 @@
 from config import sharpe as sharpe
+from config import main as main
 import numpy as np
 from core.database import stockdata
+import pickle
 
 
 class SharpeCompany:
     def __init__(self):
         self.returns = []
         self.results = None
+        self.symbol = None
 
     def set_company(self, symbol):
         link = stockdata.StockData()
         link.sfrom('2007-01-01')
         link.sto('2016-01-20')
+        self.symbol = symbol
         self.results = link.get_sdata(symbol)
         self.returns = []  # Reset for a new company
 
     def get_latest_open(self):
-        return self.results[-1][1]
+        last_values = self.results[-1]
+        with open(main.path+'upinkai/company_clf/'+self.symbol, 'rb') as file:
+            load_var = pickle.load(file)
+            ans = load_var['svr'].predict(load_var['minMaxFeatures'].transform(last_values))
+            return load_var['minMaxPred'].inverse_transform(ans)[0]
 
     def calculate_returns(self):
         latest = self.results[-1][3]
